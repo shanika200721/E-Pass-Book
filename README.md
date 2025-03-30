@@ -88,8 +88,8 @@ Frontend: http://localhost:5173
 Backend API: http://localhost:5000
 
 ### Future Enhancements
-   # Implement fund transfers between accounts
-   # Add admin dashboard
-   # Integrate SMS notifications
-   # Add charts for spending analytics
-   # Dark mode support
+   - Implement fund transfers between accounts
+   -  Add admin dashboard
+   -  Integrate SMS notifications
+   -  Add charts for spending analytics
+   -  Dark mode support
