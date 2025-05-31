@@ -23,8 +23,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/accounts', require('./routes/accounts'));
 
 // Set port
-const PORT = process.env.PORT || 5000;
-
+const PORT = process.env.PORT || 5000;   // http://localhost:5000/api/auth/register
 // Start server
 app.listen(PORT, () => 
   console.log(`Server running on port ${PORT}`)

@@ -12,22 +12,24 @@ const signToken = (id) => {
 // Register new user
 exports.register = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
-    
+    const { firstName, lastName, email, password, accountType } = req.body;
+
     // 1) Check if user exists
-    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ 
         status: 'fail',
-        message: 'Username or email already in use'
+        message: 'Email already in use'
       });
     }
 
-    // 2) Create new user
+    // 2) Create new user (assume password is hashed elsewhere or here)
     const newUser = await User.create({ 
-      username, 
-      email, 
-      password 
+      firstName,
+      lastName,
+      email,
+      password,
+      accountType
     });
 
     // 3) Generate token
@@ -36,12 +38,15 @@ exports.register = async (req, res) => {
     // 4) Send response
     res.status(201).json({
       status: 'success',
+      message: 'User registered successfully!',
       token,
       data: {
         user: {
           id: newUser._id,
-          username: newUser.username,
-          email: newUser.email
+          firstName: newUser.firstName,
+          lastName: newUser.lastName,
+          email: newUser.email,
+          accountType: newUser.accountType
         }
       }
     });
@@ -56,10 +61,16 @@ exports.register = async (req, res) => {
 // Login user
 exports.login = async (req, res) => {
     try {
-      const { username, password } = req.body;
-      const user = await User.findOne({ username }).select('+password');
+      const { email, password } = req.body;
+      const user = await User.findOne({ email }).select('+password');
   
-      if (!user || !(await user.correctPassword(password))) {
+      if (!user){
+        return res.status(401).json({
+          status:'fail',
+          message: "User does not exist"
+        })
+      } 
+      if (!await user.correctPassword(password)) {
         return res.status(401).json({
           status: 'fail',
           message: 'Incorrect username or password'
@@ -73,7 +84,6 @@ exports.login = async (req, res) => {
         data: {
           user: {
             id: user._id,
-            username: user.username,
             email: user.email
           }
         }
@@ -81,7 +91,7 @@ exports.login = async (req, res) => {
     } catch (err) {
       res.status(500).json({ 
         status: 'error',
-        message: err.message 
+        message:"can not find"
       });
     }
   };
