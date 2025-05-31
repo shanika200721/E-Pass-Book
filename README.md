@@ -41,15 +41,6 @@ A modern online banking web application with secure authentication, account mana
 - MongoDB (with Mongoose)
 - JWT Authentication
 
-
-## Installation
-
-### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB (v4.4 or higher)
-- npm or yarn
-
-
 ## Screens
 - Welcome Screen - Landing page with login option
 - Login/Register - User authentication forms
