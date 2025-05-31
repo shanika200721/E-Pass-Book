@@ -1,12 +1,39 @@
-# React + Vite
+# E-Banking Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Demo video](Demo video.mp4)] (https://github.com/shanika200721/E-Pass-Book/Demovideo.mp4)
+ <img src="1jpg" width="600">
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A modern online banking web application with secure authentication, account management, and transaction features.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **User Authentication**
+  - Secure login/registration
+  - Password recovery
+- **Account Dashboard**
+  - Overview of all accounts
+  - Quick access to common actions
+- **Transaction Management**
+  - View transaction history
+  - Filter and search transactions
+- **Account Services**
+  - Transfer between accounts
+  - Payment services
+  - Account creation
+
+## Technologies Used
+
+### Frontend
+- React.js
+- React Router
+- CSS Modules
+- Axios (for API calls)
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB (with Mongoose)
+- JWT Authentication
+
+## Project Structure
